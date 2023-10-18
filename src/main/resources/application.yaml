@@ -1,0 +1,21 @@
+server:
+  port: 9296
+
+spring:
+  application:
+    name: CONFIG_SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/san1jad/spring-app-config.git
+          clone-on-start: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8076/eureka}
